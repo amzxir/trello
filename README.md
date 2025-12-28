@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧩 Trello App (Clone)
 
-## Getting Started
+A Trello-like task management application with drag & drop functionality, built using modern front-end technologies.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+This project is built with the following tools and libraries:
+
+* **Next.js 16** – React framework with SSR support and App Router
+* **React 19** – UI library
+* **TypeScript** – Type-safe development
+* **Tailwind CSS 4** – Utility-first modern styling
+* **Sass (SCSS)** – Better style organization for complex UI parts
+* **@dnd-kit** – Drag & Drop implementation for columns and cards
+* **ESLint** – Code quality and linting
+
+---
+
+## 📦 Dependencies
+
+### Runtime Dependencies
+
+* `next`
+* `react`
+* `react-dom`
+* `@dnd-kit/core`
+* `@dnd-kit/sortable`
+* `@dnd-kit/utilities`
+
+### Dev Dependencies
+
+* `typescript`
+* `tailwindcss`
+* `sass`
+* `eslint`
+* `eslint-config-next`
+* `@types/react`
+* `@types/react-dom`
+* `@types/node`
+
+---
+
+## ⚙️ Scripts
+
+Available project scripts:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Run development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🗂️ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Create boards / columns
+* Create task cards
+* Drag & Drop cards between columns
+* Sort cards using Drag & Drop
+* Responsive UI
+* Clean and scalable component structure
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure (Simplified)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+src/
+ ├─ app/
+ │   ├─ page.tsx
+ │   └─ layout.tsx
+ ├─ components/
+ │   ├─ Board/
+ │   ├─ Column/
+ │   └─ Card/
+ ├─ styles/
+ └─ types/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧠 Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* This is a **client-side only** project (no backend).
+* Data can be managed using local state or `localStorage`.
+* Suitable for practicing Drag & Drop, component architecture, and modern Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Installation
+
+```bash
+git clone <repo-url>
+cd trello-app
+npm install
+npm run dev
+```
+
+The app will be available at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📄 License
+
+This project is intended for educational and personal use.
+
+---
+
+If you want to add sections like **Roadmap**, **Screenshots**, or **State Management** (e.g. Zustand), let me know and I’ll extend the README for you.
