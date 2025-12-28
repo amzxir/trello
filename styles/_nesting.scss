@@ -1,0 +1,18 @@
+@use './variables' as *;
+
+
+.button {
+  padding: 12px 20px;
+  border-radius: $radius-sm;
+  background: $color-primary;
+  color: white;
+  border: none;
+
+  &:hover {
+    background: darken($color-primary, 10%);
+  }
+
+  &--secondary {
+    background: $color-secondary;
+  }
+}
