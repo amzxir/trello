@@ -47,10 +47,10 @@ This project is built with the following tools and libraries:
 Available project scripts:
 
 ```bash
-npm run dev      # Run development server
-npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
+pnpm run dev      # Run development server
+pnpm run build    # Build for production
+pnpm run start    # Start production server
+pnpm run lint     # Run ESLint
 ```
 
 ---
@@ -63,23 +63,6 @@ npm run lint     # Run ESLint
 * Sort cards using Drag & Drop
 * Responsive UI
 * Clean and scalable component structure
-
----
-
-## 📁 Project Structure (Simplified)
-
-```text
-src/
- ├─ app/
- │   ├─ page.tsx
- │   └─ layout.tsx
- ├─ components/
- │   ├─ Board/
- │   ├─ Column/
- │   └─ Card/
- ├─ styles/
- └─ types/
-```
 
 ---
 
@@ -96,8 +79,8 @@ src/
 ```bash
 git clone <repo-url>
 cd trello-app
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 The app will be available at:
@@ -111,7 +94,3 @@ http://localhost:3000
 ## 📄 License
 
 This project is intended for educational and personal use.
-
----
-
-If you want to add sections like **Roadmap**, **Screenshots**, or **State Management** (e.g. Zustand), let me know and I’ll extend the README for you.
