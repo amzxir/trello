@@ -1,18 +1,497 @@
-@use './variables' as *;
+@use "./variables" as *;
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-main;
+}
 
-.button {
-  padding: 12px 20px;
-  border-radius: $radius-sm;
-  background: $color-primary;
-  color: white;
-  border: none;
+.app {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: $color-primary;
 
-  &:hover {
-    background: darken($color-primary, 10%);
+  .card {
+    background-color: $color-white;
+    padding: 0.3rem $radius-sm;
+    border-radius: $radius-sm;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      background-color: $color-bg-hover;
+    }
+
+    &--overlay {
+      transform: rotate(3deg);
+      box-shadow: $shadow-md;
+      border-color: #3b82f6;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: $radius-md;
+    }
+
+    &__title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: $color-gray-800;
+    }
+
+    &__meta {
+      display: flex;
+      align-items: center;
+      gap: $radius-xl;
+      margin-top: $radius-sm;
+    }
+
+    &__icon {
+      width: 0.875rem;
+      height: 0.875rem;
+      fill: currentColor;
+      color: $color-gray-500;
+      flex-shrink: 0;
+    }
+
+    &__comments {
+      margin-left: auto;
+      padding: 0.3rem 0.6rem;
+      border-radius: $radius-xs;
+      background-color: $color-bg-list;
+      color: rgb(23, 43, 77);
+      font-size: $radius-xl;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in;
+    }
   }
 
-  &--secondary {
-    background: $color-secondary;
+  .card-modal {
+    &__overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 5rem 1rem 1rem;
+      background: $color-overlay;
+      overflow-y: auto;
+    }
+
+    &__container {
+      position: relative;
+      width: 100%;
+      max-width: 28rem;
+      background: $color-white;
+      border-radius: $radius-xl;
+      box-shadow: $shadow-lg;
+      flex-direction: column;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+    }
+
+    &__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: $radius-lg;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: rgb(107, 119, 140);
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: $color-gray-600;
+      }
+    }
+
+    &__main {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    &__section {
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    &__body {
+      margin-bottom: 0.3rem;
+      font-size: 0.7rem;
+      color: rgb(94, 108, 132);
+      list-style: none;
+      padding: $radius-lg;
+      background-color: $color-bg-list;
+      border-radius: $radius-xs;
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $color-gray-700;
+      flex-shrink: 0;
+      margin-top: $radius-sm;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $color-gray-800;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    &__title-input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: $radius-lg;
+      font-size: 1rem;
+      border-radius: $radius-md;
+      outline: none;
+    }
+
+    &__block-header {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: rgb(107, 119, 140);
+    }
+
+    &__btn--ghost {
+      background: $color-gray-300;
+      padding: $radius-sm $radius-xl;
+      border-radius: $radius-md;
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      &:hover {
+        background: $color-gray-400;
+      }
+    }
+
+    &__btn--danger {
+      display: flex;
+      align-items: center;
+      gap: $radius-lg;
+      background: $color-danger-bg;
+      color: $color-danger;
+      padding: $radius-lg;
+      border-radius: $radius-md;
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      &:hover {
+        background: $color-danger-bg-hover;
+      }
+    }
+
+    &__sidebar {
+      width: 100%;
+      padding: 1.5rem;
+      border-top: 1px solid $color-gray-300;
+
+      @media (min-width: 768px) {
+        width: 12rem;
+        border-top: none;
+        border-left: 1px solid $color-gray-300;
+      }
+
+      h4 {
+        font-size: $radius-xl;
+        font-weight: 700;
+        color: $color-gray-600;
+        margin-bottom: $radius-xl;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .list {
+    width: 18rem;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+
+    &--overlay {
+      box-shadow: $shadow-lg;
+    }
+
+    &__inner {
+      background: $color-bg-list;
+      border-radius: $radius-sm;
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+      box-shadow:$shadow-sm;
+    }
+
+    &__header {
+      padding: 0rem $radius-xl;
+      display: flex;
+      align-items: center;
+      gap: $radius-sm;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    &__title {
+      flex: 1;
+      font-size: 1rem;
+      font-weight: bolder;
+      color: $color-primary-dark;
+      cursor: pointer;
+    }
+
+    &__title-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: $radius-sm $radius-lg;
+      border: 2px solid $color-black;
+      font-size: 0.875rem;
+      font-weight: 600;
+      outline: none;
+    }
+
+    &__delete {
+      color: $color-danger;
+      transition: background 0.2s;
+      background: transparent;
+      border: none;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        fill: currentColor;
+      }
+    }
+
+    &__cards {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 $radius-lg;
+      min-height: 10px;
+    }
+
+    &__cards-inner {
+      display: flex;
+      flex-direction: column;
+      gap: $radius-lg;
+      padding-bottom: $radius-lg;
+    }
+
+    &__footer {
+      padding: $radius-lg;
+    }
+
+    &__add-trigger {
+      background-color: $color-bg-list;
+      border: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: $radius-lg;
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      span {
+        font-size: 1.25rem;
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &__add-card {
+      background: $color-bg-list;
+      padding: $radius-lg;
+      border-radius: $radius-lg;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &__textarea {
+      width: 100%;
+      min-width: 100%;
+      font-size: 0.875rem;
+      resize: none;
+      height: 5rem;
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      gap: $radius-lg;
+      margin-top: $radius-lg;
+    }
+
+    &__btn-primary {
+      background: $color-success;
+      color: $color-white;
+      padding: 0.6rem $radius-xl;
+      border: none;
+      font-size: $radius-xl;
+      font-weight: 600;
+    }
+
+    &__btn-icon {
+      border: none;
+      background-color: transparent;
+      color: $color-black;
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        fill: currentColor;
+      }
+    }
+  }
+
+  .board-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &-title-input {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: 1rem;
+        border-radius: $radius-sm;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        width: 16rem;
+      }
+
+      &-title-text {
+        color: white;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: $radius-sm $radius-lg;
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 1rem;
+
+      .lists-wrapper {
+        display: flex;
+        gap: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        align-items: flex-start;
+        height: 100%;
+
+        &__add-list {
+          width: 18rem;
+          flex-shrink: 0;
+
+          &-form {
+            background-color: #ebecf0;
+            padding: $radius-lg;
+            border-radius: $radius-lg;
+            box-shadow:$shadow-sm;
+
+            input {
+              width: 100%;
+              box-sizing: border-box;
+              padding: $radius-lg;
+              border-radius: $radius-sm;
+              border: 2px solid #3b82f6;
+              margin-bottom: $radius-lg;
+              outline: none;
+              font-size: 0.875rem;
+            }
+
+            .buttons {
+              display: flex;
+              align-items: center;
+              gap: $radius-lg;
+
+              .add-btn {
+                background: $color-success;
+                color: $color-white;
+                padding: 0.6rem $radius-xl;
+                border: none;
+                font-size: $radius-xl;
+                font-weight: 600;
+              }
+
+              .cancel-btn {
+                border: none;
+                background-color: transparent;
+                color: $color-black;
+
+                svg {
+                  width: 1.25rem;
+                  height: 1.25rem;
+                  fill: currentColor;
+                }
+              }
+            }
+          }
+
+          &-button {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.12);
+            color: $color-white;
+            font-weight: 600;
+            padding: $font-xs;
+            display: flex;
+            align-items: center;
+            border: none;
+            gap: $radius-lg;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.12);
+            }
+
+            span {
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__drag-overlay {
+      opacity: 0.5;
+    }
   }
 }

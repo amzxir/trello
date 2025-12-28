@@ -1,8 +1,82 @@
-$color-primary: #0070f3;
-$color-secondary: #ff4081;
-$color-bg: #f5f5f5;
+/* =========================
+   Colors
+========================= */
+$color-primary: #2e7eaf;
+$color-primary-dark: rgb(9, 9, 139);
 
-$font-main: "Inter", system-ui, sans-serif;
+$color-white: #ffffff;
+$color-black: #000000;
 
-$radius-sm: 6px;
-$radius-md: 12px;
+$color-gray-100: #f9fafb;
+$color-gray-200: #f3f4f6;
+$color-gray-300: #e5e7eb;
+$color-gray-400: #d1d5db;
+$color-gray-500: #9ca3af;
+$color-gray-600: #6b7280;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+
+$color-bg-list: rgb(223, 225, 230);
+$color-bg-hover: rgb(244, 245, 247);
+
+$color-success: rgb(90, 172, 68);
+$color-danger: #ef4444;
+$color-danger-bg: #fee2e2;
+$color-danger-bg-hover: #fecaca;
+
+$color-overlay: rgba(0, 0, 0, 0.6);
+
+/* =========================
+   Typography
+========================= */
+$font-main: "Roboto, sans-serif", system-ui, sans-serif;
+
+
+$font-xs: 0.75rem;
+$font-sm: 0.875rem;
+$font-md: 1rem;
+$font-lg: 1.125rem;
+$font-xl: 1.25rem;
+
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+/* =========================
+   Radius
+========================= */
+$radius-xs: 0.2rem;
+$radius-sm: 0.25rem;
+$radius-md: 0.375rem;
+$radius-lg: 0.5rem;
+$radius-xl: 0.75rem;
+
+/* =========================
+   Spacing
+========================= */
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 0.75rem;
+$space-lg: 1rem;
+$space-xl: 1.5rem;
+
+/* =========================
+   Shadow
+========================= */
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 10px 15px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+/* =========================
+   Z-index
+========================= */
+$z-modal: 50;
+
+/* =========================
+   Sizes
+========================= */
+$list-width: 18rem;
+$sidebar-width: 12rem;
+$modal-max-width: 28rem;
+
+
