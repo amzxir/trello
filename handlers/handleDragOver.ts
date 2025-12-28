@@ -2,7 +2,7 @@ import { DragOverEvent } from "@dnd-kit/core";
 
 export const handleDragOver = (
   event: DragOverEvent,
-  board: any,
+  board: BoardData,
   activeType: "LIST" | "CARD" | null,
   moveCard: (
     cardId: string,

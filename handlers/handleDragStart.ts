@@ -2,7 +2,7 @@ import { DragStartEvent } from "@dnd-kit/core";
 
 export const handleDragStart = (
   event: DragStartEvent,
-  board: any,
+  board: BoardData,
   setActiveId: (id: string | null) => void,
   setActiveType: (type: "LIST" | "CARD" | null) => void
 ) => {

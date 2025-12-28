@@ -3,7 +3,7 @@ import { arrayMove } from "@dnd-kit/sortable";
 
 export const handleDragEnd = (
   event: DragEndEvent,
-  board: any,
+  board: BoardData,
   activeType: "LIST" | "CARD" | null,
   reorderLists: (listOrder: string[]) => void,
   reorderCards: (listId: string, cardIds: string[]) => void,
