@@ -11,7 +11,6 @@ This project is built with the following tools and libraries:
 * **Next.js 16** – React framework with SSR support and App Router
 * **React 19** – UI library
 * **TypeScript** – Type-safe development
-* **Tailwind CSS 4** – Utility-first modern styling
 * **Sass (SCSS)** – Better style organization for complex UI parts
 * **@dnd-kit** – Drag & Drop implementation for columns and cards
 * **ESLint** – Code quality and linting
@@ -32,7 +31,6 @@ This project is built with the following tools and libraries:
 ### Dev Dependencies
 
 * `typescript`
-* `tailwindcss`
 * `sass`
 * `eslint`
 * `eslint-config-next`
